@@ -393,6 +393,7 @@ export class Game {
   uiBuyBomb() {
     if (this.p.gold < 5 || this.p.bombs >= this.p.bombCap) { sfx('locked'); return; }
     this.p.gold -= 5;
+    this.p.hasBombs = true;
     this.p.bombs++;
     sfx('coin');
     this.emit();
