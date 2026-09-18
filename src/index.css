@@ -1,0 +1,64 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: #0b0d12;
+  color: #e8e2d0;
+  font-family: "Courier New", ui-monospace, monospace;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; overflow: hidden;
+}
+#root { display: flex; align-items: center; justify-content: center; width: 100%; }
+.stage { position: relative; width: min(96vw, 960px); aspect-ratio: 640 / 384; }
+canvas.game {
+  width: 100%; height: 100%; display: block;
+  image-rendering: pixelated; image-rendering: crisp-edges;
+  background: #000; border: 3px solid #3a3f4a; border-radius: 4px;
+}
+.overlay {
+  position: absolute; inset: 0; display: flex;
+  align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.panel {
+  pointer-events: auto;
+  background: rgba(10, 12, 18, 0.94);
+  border: 2px solid #8a6f3c; border-radius: 6px;
+  padding: 18px 22px; max-width: 78%;
+  box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+.panel h1 { font-size: 22px; letter-spacing: 4px; color: #d8b25c; margin-bottom: 6px; text-align: center; }
+.panel h2 { font-size: 15px; color: #d8b25c; margin-bottom: 8px; letter-spacing: 2px; }
+.panel p { font-size: 13px; line-height: 1.55; margin: 6px 0; }
+.panel .dim { color: #9a917c; font-size: 12px; }
+.btnrow { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; justify-content: center; }
+button.ui {
+  pointer-events: auto; cursor: pointer;
+  font-family: inherit; font-size: 13px; letter-spacing: 1px;
+  background: #1c2030; color: #e8e2d0;
+  border: 2px solid #8a6f3c; border-radius: 4px;
+  padding: 8px 16px;
+}
+button.ui:hover { background: #2a3050; border-color: #d8b25c; }
+button.ui:disabled { opacity: 0.4; cursor: default; }
+button.ui.danger { border-color: #a03c3c; }
+.dialog { align-items: flex-end; padding-bottom: 18px; }
+.dialog .panel { width: 88%; max-width: 88%; }
+.dialog .who { color: #d8b25c; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+.hud {
+  position: absolute; top: 8px; left: 10px; right: 10px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  pointer-events: none; font-size: 13px;
+  text-shadow: 2px 2px 0 #000;
+}
+.hud .hearts { font-size: 16px; letter-spacing: 1px; }
+.hud .stats { text-align: right; line-height: 1.5; }
+.hud .room { position: absolute; left: 50%; transform: translateX(-50%); top: 0; color: #d8b25c; letter-spacing: 3px; font-size: 12px; }
+.shoprow { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin: 8px 0; font-size: 13px; }
+.boardline { font-size: 13px; margin: 8px 0; padding: 6px 10px; border-left: 3px solid #8a6f3c; background: rgba(138,111,60,0.08); }
+.boardline.fresh { border-left-color: #d8b25c; }
+.shaftmap { display: flex; gap: 26px; margin: 12px 0; justify-content: center; }
+.shaftnode { text-align: center; }
+.hint { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-size: 11px; color: #9a917c; pointer-events: none; text-shadow: 2px 2px 0 #000; }
+.title-sub { text-align: center; color: #9a917c; font-size: 12px; margin-bottom: 10px; letter-spacing: 1px; }
+.slotrow { display: flex; gap: 10px; justify-content: center; margin-top: 10px; }
+.warn { color: #e08a8a; }
